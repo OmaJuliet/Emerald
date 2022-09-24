@@ -3,6 +3,26 @@ import { storage, db } from "../firebase";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { motion } from 'framer-motion';
+
+
+const loaderVariants = {
+  animationOne: {
+    x: [ -20, 20 ],
+    y: [ 0, -30 ],
+    transition: {
+      x: {
+        yoyo: Infinity,
+        duration: 0.5
+      },
+      y: {
+        yoyo: Infinity,
+        duration: 0.25,
+        ease: 'easeOut'
+      }
+    }
+  }
+}
 
 const initialState = {
     name: "",
@@ -37,7 +57,7 @@ const AddEdit = () => {
 
     useEffect(() => {
         const uploadFile = () => {
-            const name = new Date().getTime() + file.name;
+            // const name = new Date().getTime() + file.name;
             const storageRef = ref(storage, file.name);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -119,30 +139,23 @@ const AddEdit = () => {
             }
         }
 
-        navigate("/");
+        navigate("/eventlist");
     };
 
 
     return (
         <section className="lg:w-1/2 md:w-2/3 mx-auto">
-            {isSubmit ? <div>Loading...</div> : (
+            {isSubmit ? <motion.div variants={loaderVariants} animate="animationOne" className="flex flex-col text-center rounded-full w-4 h-4 mx-auto mt-2 lg:mt-2 bg-indigo-500 rounded-full"></motion.div> : (
                 <>
-                    <h1>{id ? "Edit event" : "Add new events"}</h1>
+                    <h1 className="text-xl text-indigo-500 font-semibold">{id ? "Edit event" : "Add new event"}</h1>
                     <form onSubmit={handleSubmit}>
                         <section className="text-gray-600 body-font">
                             <section className="container mx-auto flex flex-col px-5 py-2 items-center justify-center">
-                                {/* <>
-                      <aside className="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
-                        <img alt="not found" class="lg:w-2/6 md:w-3/6 w-3/6 mb-2 object-cover object-center rounded" src="" />
-                        <br />
-                        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Remove Image</button>
-                      </aside>
-                    </> */}
-                                <br />
+                                <label htmlFor="image" className="leading-7 text-sm text-left text-gray-600">Event Image</label>
                                 <input
                                     type="file"
                                     onChange={(e) => setFile(e.target.files[0])}
-                                    className="mb-4"
+                                    className="my-8"
                                 />
 
                             </section>
@@ -152,7 +165,7 @@ const AddEdit = () => {
                         <section className="flex flex-wrap -m-2">
                             <article className="p-2 w-1/2">
                                 <aside className="relative">
-                                    <label className="leading-7 text-sm text-gray-600">Event Name</label>
+                                    <label htmlFor="Event Name" className="leading-7 text-left text-sm text-gray-600">Event Name</label>
                                     <input
                                         name="name"
                                         error={errors.name ? { content: errors.name } : null}
@@ -165,7 +178,7 @@ const AddEdit = () => {
 
                             <article className="p-2 w-1/2">
                                 <aside className="relative">
-                                    <label className="leading-7 text-sm text-gray-600">Event Location</label>
+                                    <label htmlFor="Event Location" className="leading-7 text-sm text-gray-600">Event Location</label>
                                     <input
                                         name="location"
                                         error={errors.location ? { content: errors.location } : null}
@@ -178,7 +191,7 @@ const AddEdit = () => {
 
                             <article className="p-2 w-1/2">
                                 <aside className="relative">
-                                    <label className="leading-7 text-sm text-gray-600">Event Date</label>
+                                    <label htmlFor="Event Date" className="leading-7 text-sm text-gray-600">Event Date</label>
                                     <input
                                         type="date"
                                         name="date"
@@ -192,7 +205,7 @@ const AddEdit = () => {
 
                             <article className="p-2 w-full">
                                 <aside className="relative">
-                                    <label for="message" className="leading-7 text-sm text-gray-600">Additional Details</label>
+                                    <label htmlFor="Event Deatils" for="message" className="leading-7 text-sm text-gray-600">Additional Details</label>
                                     <textarea
                                         name="details"
                                         error={errors.details ? { content: errors.details } : null}
@@ -206,7 +219,7 @@ const AddEdit = () => {
                                 <button
                                     type="submit"
                                     disabled={progress !== null && progress < 100}
-                                    className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"> Add Event
+                                    className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Add Event
                                 </button>
                             </figure>
                         </section>

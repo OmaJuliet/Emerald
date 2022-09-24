@@ -1,13 +1,153 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.navbar {
+  padding: 0.8rem 7.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar .logo {
+  color: rgba(99 102 241);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.navbar .links, .btn {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.navbar .links li {
+  color: rgb(65, 65, 65);
+  margin: 0 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navbar .toggle-icon {
+  display: none
+}
+
+.navbar .menu-close {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 4px 15px;
+  border: 1px solid rgba(99 102 241);
+  border-radius: 50px;
+  transition: 0.35s ease;
+  color: rgba(99 102 241);
+}
+
+.btn-content:hover {
+  box-shadow: 0px 0px 8px rgba(99 102 241);
+}
+
+
+@media(max-width: 768px) {
+  .App {
+    width: 100%;
+  }
+
+  .navbar {
+    position: relative;
+    height: 80px;
+    transition: 0.5s all ease-in-out;
+  }
+
+  .navbar.expanded {
+    height: 100vh;
+    background-color: #01061D;
+  }
+
+  .navbar.expanded .links {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+  }
+
+  .navbar.expanded .links li {
+    margin: 15px 0;
+    font-size: 20px;
+  }
+
+  .navbar .links li {
+    color: rgb(238, 234, 234);
+  }
+
+  .navbar .logo {
+    position: absolute;
+    top: 23px;
+    left: 15px;
+    font-size: 1.6rem;
+  }
+
+  .navbar .toggle-icon {
+    display: block;
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    color: rgba(99 102 241);
+    border-radius: 5px;
+    border: 2px solid rgba(99 102 241);
+    padding: 2px 7px;
+  }
+
+  .navbar .links {
+    position: absolute;
+    top: -300px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navbar .links li {
+    margin: 15px 0;
+    font-size: 20px;
+  }
+
+  .btn {
+    top: 25rem;
+  }
+
+  .btn-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 15px;
+    border: 1px solid rgba(99 102 241);
+    border-radius: 50px;
+    transition: 0.35s ease;
+    color: rgba(99 102 241);
+  }
+
+}
+
+@media (width: 1024px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (width: 1280px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
 }

@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AddEdit from "./pages/AddEdit";
 import Navbar from "./component/Navbar";
-import Modal from "./component/Modal";
+import EventDetails from "./component/EventDetails";
+import MainPage from "./pages/MainPage";
 
 
 
@@ -13,10 +14,11 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<MainPage />}/>
+          <Route path="/eventlist" element={<Home />}/>
           <Route path="/add" element={<AddEdit />}/>
           <Route path="/update/:id" element={<AddEdit />}/>
-          <Route path="/fulldetails:id" element={<Modal />}/>
+          <Route path="/fulldetails/:id" element={<EventDetails />}/>
         </Routes>
       </div>
     </BrowserRouter>

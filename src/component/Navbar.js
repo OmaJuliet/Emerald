@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 
 const Navbar = () => {
     const navigate = useNavigate();
 
 
+    const [toggle, setToggle] = useState(false);
+    const handleToggle = () => {
+        setToggle(!toggle);
+    }
+
     return (
-        <header class="text-gray-600 body-font">
-            <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                <Link to="/"><h1 class="flex title-font font-medium items-center text-gray-900 text-xl mb-4 md:mb-0">Crud App </h1></Link>
-                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                    <a class="mr-5 hover:text-gray-900">First Link</a>
-                </nav>
-                <button onClick={() => navigate("/add")}class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Add </button>
-            </div>
-        </header>
+        <>
+            <nav className={toggle ? 'navbar expanded' : 'navbar'}>
+                <h2 className='logo'>Rez</h2>
+                <figure className='toggle-icon' onClick={handleToggle}>
+                    {toggle ? <p className="menu-close">X</p> : <FaBars />}
+                </figure>
+                <ul className='links'>
+                    <Link to="/" id="active"><li>Home</li></Link>
+                    <Link to="/eventlist"><li>Events</li></Link>
+                    <Link to="/"><li>About</li></Link>
+                    <div className="btn-content"><button onClick={() => navigate("/add")} className="btn">Add Event</button></div>
+                </ul>
+            </nav>
+
+        </>
     )
 }
 
 export default Navbar
+
+
