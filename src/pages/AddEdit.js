@@ -43,17 +43,24 @@ const AddEdit = () => {
 
 
     useEffect(() => {
+        const getSingleUser = async () => {
+            const docRef = doc(db, "events", id);
+            const snapshot = await getDoc(docRef);
+            if (snapshot.exists()) {
+                setData({ ...snapshot.data() });
+            }
+        }
         id && getSingleUser();
     }, [id])
 
 
-    const getSingleUser = async () => {
-        const docRef = doc(db, "events", id);
-        const snapshot = await getDoc(docRef);
-        if (snapshot.exists()) {
-            setData({ ...snapshot.data() });
-        }
-    }
+    // const getSingleUser = async () => {
+    //     const docRef = doc(db, "events", id);
+    //     const snapshot = await getDoc(docRef);
+    //     if (snapshot.exists()) {
+    //         setData({ ...snapshot.data() });
+    //     }
+    // }
 
     useEffect(() => {
         const uploadFile = () => {
