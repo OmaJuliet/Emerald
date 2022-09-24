@@ -8,8 +8,8 @@
 
 .navbar .logo {
   color: rgba(99 102 241);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 .navbar .links, .btn {
@@ -48,6 +48,11 @@
 
 .btn-content:hover {
   box-shadow: 0px 0px 8px rgba(99 102 241);
+}
+
+.btn:focus {
+  border: none;
+  outline: none;
 }
 
 

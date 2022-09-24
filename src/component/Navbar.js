@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <>
             <nav className={toggle ? 'navbar expanded' : 'navbar'}>
-                <h2 className='logo'>Rez</h2>
+                <h2 className='logo'>Emerald</h2>
                 <figure className='toggle-icon' onClick={handleToggle}>
                     {toggle ? <p className="menu-close">X</p> : <FaBars />}
                 </figure>

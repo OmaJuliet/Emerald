@@ -41,9 +41,9 @@ const Page = () => {
         <>
             <section>
                 <section className="">
-                    <motion.section variants={sectionVariants} initial="hidden" animate="visible" exit="exit" className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
+                    <motion.section variants={sectionVariants} initial="hidden" animate="visible" exit="exit" className="container mx-auto flex px-5 py-8 lg:py-12 md:flex-row flex-col items-center">
 
-                        <section className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 mt-8 md:mb-0 items-center text-center">
+                        <section className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                             <h1 className="sm:text-3xl text-2xl mb-2 font-medium text-indigo-600">Schedule your events
                                 <br className="hidden lg:inline-block" /> the easy way
                             </h1>
@@ -53,7 +53,7 @@ const Page = () => {
                             </p>
 
                             <aside className="flex justify-center">
-                                <Link to="/add"><button className="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded-full text-lg">Get Started</button></Link>
+                                <Link to="/add"><motion.button whileHover={{ scale: 1.1, boxShadow: "0px 0px 5px rgba(99 102 241)" }} className="inline-flex text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded-full text-lg">Get Started</motion.button></Link>
                             </aside>
                         </section>
 
@@ -176,7 +176,7 @@ const Page = () => {
             <footer>
                 <aside className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
                     <h1 className="flex title-font font-medium items-center md:justify-start justify-center text-black">
-                        <span className="ml-3 text-xl">Rez Blogging Platform</span>
+                        <span className="ml-3 text-xl">Emerald</span>
                     </h1>
                     <p className="text-sm text-gray-700 sm:ml-0 sm:pl-4 sm:py-2 sm:mt-0 mt-4">© 2022 All rights reserved</p>
 

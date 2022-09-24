@@ -67,11 +67,11 @@ const Home = () => {
                                             <p className="leading-relaxed mb-1">Date: {item.date}</p>
                                             <p className="leading-relaxed mb-3">Venue: {item.location}</p>
                                             <Link to={`/fulldetails/${item.id}`} state={{ item }}>
-                                                <button className="rounded bg-indigo-500 mt-2 px-2 py-0 text-white text-lg">
+                                                <button className="rounded bg-indigo-500 mt-2 px-2 py-0 outline-none focus:border-o focus:outline-none text-white text-lg">
                                                     View
                                                 </button>
                                             </Link>
-                                            <button onClick={() => navigate(`/update/${item.id}`)} className="rounded mt-2 ml-2 bg-indigo-500 px-2 py-0 text-white text-lg">Edit</button>
+                                            <button onClick={() => navigate(`/update/${item.id}`)} className="rounded mt-2 ml-2 bg-indigo-500 px-2 py-0 outline-none focus:border-o focus:outline-none text-white text-lg">Edit</button>
                                         </section>
                                     </summary>
                                 </article>
