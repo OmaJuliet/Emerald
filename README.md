@@ -1,8 +1,8 @@
-# FOOD ORDERING WEB APPLICATION
+# EMERALD WEB APP - REACT CRUD APPLICATION
 
 ## About The Project 
 
-A functional CRUD Application. By CREATING events, READING/VIEWING events, UPDATING events, and DELETING events that they have entered at a previous date, users of this event app are able to keep track of their events. Events information includes, event name, date, location, full details and event's image. Made use of Firebase to store the events.
+A functional CRUD Application. By CREATING events, READING/VIEWING events, UPDATING events, and DELETING events that they have entered at a previous date, users of this event app are able to keep track of their events. Events information includes, event name, date, location, full details and event's image.
 
 
 ## App Interface
@@ -19,13 +19,13 @@ A functional CRUD Application. By CREATING events, READING/VIEWING events, UPDAT
 
 
 
-## Roadmap 🔍
+## Pages 🔍
 
-Here are some of the links you should look out for to make navigation on the site smooth for you. 
+The application's pages to check out. 
 
 - Home Page
 - Events List Page
-- Add Event & Edit Event
+- Add, Edit Event and Upload Event's image
 - View Event
 - Delete Event(not functional yet)
 
