@@ -3,6 +3,23 @@ import { motion } from 'framer-motion';
 import { useLocation } from "react-router-dom";
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+const notify = () => {
+    toast.info('Delete functionality has been disabled!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+  }
+
 // Function to handle the deletion of an event
 // const handleDelete = async (id) => {
 //     if (window.confirm("Are you sure you want to delete this event"))
@@ -15,9 +32,11 @@ import { useLocation } from "react-router-dom";
 // }
 
 
-const handleDelete = async () => {
-    alert("Delete functionality is diasbled now");
-  };
+// const handleDelete = async () => {
+//     alert("Delete functionality is diasbled now");
+//   };
+
+
 
 
 
@@ -43,7 +62,7 @@ const EventDetails = () => {
                                     <p className="font-semibold mb-4 text-indigo-500 text-base">Location: {state.item.location}</p>
                                     <aside className="text-base text-black"><span className="text-lg font-medium">Details:</span> {state.item.details}</aside>
                                     <motion.button whileHover={{ scale: 1.1, boxShadow: "0px 0px 5px rgba(99 102 241)" }}
-                                        onClick={handleDelete}
+                                        onClick={notify}
                                         className="mx-auto text-indigo-500 border-0 mt-4 py-2 px-4 focus:outline-none border-1 border-indigo-500 hover:bg-white rounded text-lg">Delete
                                     </motion.button>
                                 </aside>
@@ -52,6 +71,7 @@ const EventDetails = () => {
                     </section>
                 </section>
             </section>
+            <ToastContainer />
         </>
     );
 };
