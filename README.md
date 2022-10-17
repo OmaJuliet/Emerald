@@ -16,6 +16,7 @@ A functional CRUD Application. By CREATING events, READING/VIEWING events, UPDAT
 - React-icons
 - Firebase
 - Framer Motion
+- React Toastify
 
 
 
